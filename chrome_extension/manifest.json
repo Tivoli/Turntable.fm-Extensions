@@ -15,12 +15,12 @@
     }
   ],
   "permissions": [
-	"tabs",
-	"notifications",
-	"http://turntable.fm/*",
+	  "tabs",
+	  "notifications",
+	  "http://turntable.fm/*",
     "http://ws.audioscrobbler.com/*"
   ],
-  "browser_action": {
+  "page_action": {
     "default_title": "Turntable.fm Extension",
     "default_icon": "images/turntable-fm-16.png",
     "popup": "popup.html"
