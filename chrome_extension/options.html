@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/options.css" />
+	<script src="js/jquery.1.6.1.min.js"></script>
+	<script type="text/javascript">
+		var defaults = {
+		    "showChat": true,
+		    "showSong": true,
+		    "showVote": true,
+		    "showDJChanges": false,
+		    "showListenerChanges": false,
+		    "autoAwesome": false
+		};
+		
+		$(document).ready(function(){
+			$.each(defaults, function(key, val){
+				if (!localStorage[key])
+					localStorage[key] = val
+					
+				$('#' + key).prop('checked', JSON.parse(localStorage[key]))
+			});
+			
+			$(":checkbox[data-tfmex-pref]").live('change', function(event){
+				var opt = $(this).data('tfmex-pref');
+				localStorage[opt] = $(this).is(':checked');
+			});
+		});
+	</script>
+</head>
+<body>
+	<header class='clearfix'>
+		<img src="images/turntable-fm-48.png">
+		Turntable.fm Extended
+	</header>
+	<ul>
+		<li>
+			<input type="checkbox" id="showChat" data-tfmex-pref="showChat" />
+			Show Chat Messages? (Note: Disable the chat ding for this to work)
+		</li>
+		<li>
+			<input type="checkbox" id="showSong" data-tfmex-pref="showSong" />
+			Show Song Messages?
+		</li>
+		<li>
+			<input type="checkbox" id="showVote" data-tfmex-pref="showVote" />
+			Show Vote Messages?
+		</li>
+		<li>
+			<input type="checkbox" id="showDJChanges" data-tfmex-pref="showDJChanges" />
+			Show DJ Changes?
+		</li>
+		<li>
+			<input type="checkbox" id="showListenerChanges" data-tfmex-pref="showListenerChanges" />
+			Show Listener Changes?
+		</li>
+		<li>
+			<input type="checkbox" id="autoAwesome" data-tfmex-pref="autoAwesome" />
+			Auto Awesome?
+		</li>
+	</ul>
+</body>
+</html>

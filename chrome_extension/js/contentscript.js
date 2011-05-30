@@ -57,7 +57,7 @@ function get_authenticated() {
 function check_for_authentication() {
 	chrome.extension.sendRequest({method: "getSession"}, function(token) {
 		localStorage["lastfm-session-token"] = token;
-		console.log("Reieved session: "+token);
+		console.log("Received session: "+token);
 	});
 	
 	//console.log(token);
