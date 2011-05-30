@@ -3,23 +3,10 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/options.css" />
 	<script src="js/jquery.1.6.1.min.js"></script>
-	<script type="text/javascript">
-		var defaults = {
-		    "showChat": true,
-		    "showSong": true,
-		    "showVote": true,
-		    "showDJChanges": false,
-		    "showListenerChanges": false,
-		    "autoAwesome": false
-		};
-		
+	<script src="js/options.js"></script>
+	<script>
 		$(document).ready(function(){
-			$.each(defaults, function(key, val){
-				if (!localStorage[key])
-					localStorage[key] = val
-					
-				$('#' + key).prop('checked', JSON.parse(localStorage[key]))
-			});
+			initOptions();
 			
 			$(":checkbox[data-tfmex-pref]").live('change', function(event){
 				var opt = $(this).data('tfmex-pref');

@@ -97,16 +97,6 @@
 		//console.log("Made XHR request: "+url + '?method=' + api_call + '&' + stringify(params));
 	}
 	
-	function checkForValidUrl(tabId, changeInfo, tab) {
-      // If the letter 'g' is found in the tab's URL...
-      if (/(turntable.fm)/.test(tab.url)) {
-        chrome.pageAction.show(tabId);
-      }
-    };
-
-    // Listen for any changes to the URL of any tab.
-    chrome.tabs.onUpdated.addListener(checkForValidUrl);
-	
 	
 	
 	
@@ -567,4 +557,15 @@
 
 	    return string;
 	}
+	
+	function checkForValidUrl(tabId, changeInfo, tab) {
+      // If the letter 'g' is found in the tab's URL...
+      if (/(turntable.fm)/.test(tab.url)) {
+        chrome.pageAction.show(tabId);
+		initOptions();
+      }
+    };
+
+    // Listen for any changes to the URL of any tab.
+    chrome.tabs.onUpdated.addListener(checkForValidUrl);
 </script>
